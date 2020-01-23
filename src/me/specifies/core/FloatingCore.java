@@ -24,6 +24,8 @@ import me.specifies.core.PvP.BlockPlace.Events.RemoveOnDisconnect;
 import me.specifies.core.PvP.BlockPlace.Events.RemoveOnTeleport;
 import me.specifies.core.PvP.Misc.PreventFly;
 import me.specifies.core.PvP.Misc.SendPlayerHealth;
+import me.specifies.core.Skyblock.AutoTpVoid;
+import me.specifies.core.Skyblock.PreventFallDamage;
 
 public class FloatingCore extends JavaPlugin {
 	
@@ -72,6 +74,9 @@ public class FloatingCore extends JavaPlugin {
 		pm.registerEvents(new RemoveOnDisconnect(this), this);
 		pm.registerEvents(new RemoveOnTeleport(this), this);
 		
+		// Skyblock
+		pm.registerEvents(new AutoTpVoid(this), this);
+		pm.registerEvents(new PreventFallDamage(this), this);
 		// Events
 		pm.registerEvents(new AddPlayerStateJoin(this), this);
 		pm.registerEvents(new AddPlayerStateMove(this), this);

@@ -11,6 +11,7 @@ public class GamePlayer {
 	private boolean warnedCreative = false;
 	private boolean togglePlaceBlocks = false;
 	private ArrayList<Block> placedBlocks = new ArrayList<Block>();
+	private boolean tpImmune;
 	private Player p;
 	
 	public GamePlayer(Player p) {
@@ -55,6 +56,14 @@ public class GamePlayer {
 	
 	public void resetBlocks() {
 		placedBlocks = new ArrayList<Block>();
+	}
+	
+	public boolean getImmuneTp() {
+		return tpImmune;
+	}
+	
+	public void setImmuneTp(boolean value) {
+		tpImmune = value;
 	}
 	
 	

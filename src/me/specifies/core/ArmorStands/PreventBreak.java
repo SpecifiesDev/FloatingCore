@@ -1,5 +1,6 @@
 package me.specifies.core.ArmorStands;
 
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -17,8 +18,10 @@ public class PreventBreak implements Listener {
 			Player p = (Player) e.getDamager();
 			
 			if(p.getWorld().getName().equalsIgnoreCase("spawn")) {
-				if(!p.hasPermission("floatingcore.armorstand.break")) {
-					e.setCancelled(true);
+				if(e.getEntity().getType() == EntityType.ARMOR_STAND) {
+					if(!p.hasPermission("floatingcore.armorstand.break")) {
+						e.setCancelled(true);
+					}
 				}
 			}
 			
